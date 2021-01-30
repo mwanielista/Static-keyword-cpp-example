@@ -6,58 +6,58 @@ using namespace std;
 class Funkcja{
 	public: 
 	
-	    void nieStatyczna(){
+	    void nonStatic(){
 	        cout << "\n\nbez static\n\n"; 
 	    }
 };
 
 class Funkcjab{
 	public:
-	    static int funct(){
+	    static int functStatic(){
 	     cout << "\n\nstatic\n\n";   
 	    }
 };
 
-//zmienna globalna - domyœlnie zachowa siê tak samo jak statyczna -> defaultowo przypisze 0 
+//zmienna globalna - domyï¿½lnie zachowa siï¿½ tak samo jak statyczna -> defaultowo przypisze 0 
 int z;
 
 
-void funkcja(){
-	static int liczba =1;	//ma swoje sta³e miejsce w pamiêci
-	int liczbaINT = 1;		//za ka¿dym razem dostaje nowe œwie¿e miejsce
+void example(){
+	static int number  =1;	//ma swoje staï¿½e miejsce w pamiï¿½ci
+	int numberINT = 1;		//za kaï¿½dym razem dostaje nowe ï¿½wieï¿½e miejsce
 	
-	liczba++;
-	liczbaINT++;
+	number++;
+	numberINT++;
 	
-	cout<<"static int: " << liczba << endl;
-	cout <<"int: " << liczbaINT << endl;
+	cout<<"static int: " << number << endl;
+	cout <<"int: " << numberINT << endl;
 	
 	cout << "*************\n\n";
 }
 
-//ta zmienna jest domyœlnie zainicjowana, poniewa¿ jest poza klas¹
+//ta zmienna jest domyï¿½lnie zainicjowana, poniewaï¿½ jest poza klasï¿½
 
 
 int main(){
 
 	
 	for(int i=0; i<3; i++){
-	  	funkcja();
+	  	example();
 	}
 	
 	  
-	//Funkcja bez static -> tworzymy obiekt z t¹ klas¹, nastêpnie odwo³ujemy siê do metody zawartej w tej klasie
+	//Funkcja bez static -> tworzymy obiekt z tï¿½ klasï¿½, nastï¿½pnie odwoï¿½ujemy siï¿½ do metody zawartej w tej klasie
 	Funkcja* f = new Funkcja();
-	f -> nieStatyczna();
+	f -> nonStatic();
 	  
 
 	  
-	//Metoda statyczna -> statycznie odwo³ujemy sie do danej metody bez tworzenia obiektu
-	Funkcjab::funct();	//:: operator zasiêgu -> z czegoœ wyci¹gamy coœ
+	//Metoda statyczna -> statycznie odwoï¿½ujemy sie do danej metody bez tworzenia obiektu
+	Funkcjab::functStatic();	//:: operator zasiï¿½gu -> z czegoï¿½ wyciï¿½gamy coï¿½
 	  
   
   
-  	//zmienna niezainicjowana - kompilator przypisuje jej defaultow¹ wartoœæ
+  	//zmienna niezainicjowana - kompilator przypisuje jej defaultowï¿½ wartoï¿½ï¿½
 	float bolek;
   	cout << "Bolek default value: "<<bolek;
   	bolek++;
@@ -71,7 +71,7 @@ int main(){
   	lolek++;
   	cout << endl<<"Lolek after: " << lolek<<endl<<endl;
   	
-  	//zmienne statyczne zawsze s¹ inicjowane i maj¹ przypisane 0
+  	//zmienne statyczne zawsze sï¿½ inicjowane i majï¿½ przypisane 0
   	static float zmiennaStatyczna;
   	cout <<"Zmienna statyczna" <<zmiennaStatyczna<<endl;
   	
